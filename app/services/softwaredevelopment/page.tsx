@@ -1,6 +1,6 @@
 "use client";
-import SoftwareDevelopment from "@/components/Services/Software/WebsiteDevelopment";
+import CustomSoftwareDevelopment from "@/components/Services/Software/CustomSoftware";
 
 export default function Page() {
-  return <SoftwareDevelopment />;
+  return <CustomSoftwareDevelopment />;
 }

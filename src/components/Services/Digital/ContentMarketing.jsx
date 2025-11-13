@@ -726,8 +726,9 @@ export default function ContentMarketing() {
                 <Image 
                   src={image} 
                   alt={titles[i]}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  width={600}
+                  height={400}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   sizes="(max-width: 1024px) 90vw, 360px"
                 />
                 {/* Gradient overlay */}
@@ -833,17 +834,17 @@ export default function ContentMarketing() {
                   transition={{ duration: 0.8 }}
                   className={`relative ${i % 2 === 1 ? 'lg:col-start-1' : ''}`}
                 >
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl max-h-96">
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                     <Image 
                       src={CONTENT_IMAGES.journey[i]} 
                       alt={title} 
-                      fill
-                      className="object-cover"
+                      width={768}
+                      height={512}
+                      className="w-full h-80 object-cover"
                       sizes="(max-width: 1024px) 90vw, 420px"
                       style={{ 
                         borderRadius: '1rem',
-                        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-                        maxHeight: '384px'
+                        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
                       }}
                     />
                     {/* Decorative overlay */}

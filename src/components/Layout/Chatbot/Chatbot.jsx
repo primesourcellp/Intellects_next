@@ -9,9 +9,24 @@ const Chatbot = () => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   
+  const STORAGE_KEY = "chatbot_messages";
+
+  const getDefaultMessages = () => [
+    {
+      id: 1,
+      text: "Hello! 👋 Welcome to Intellects. I&apos;m here to help you learn about our services. How can I assist you today?",
+      sender: "bot",
+      timestamp: new Date(),
+    },
+  ];
+
   // Load messages from localStorage or initialize with welcome message
   const loadMessages = () => {
-    const saved = localStorage.getItem("chatbot_messages");
+    if (typeof window === "undefined") {
+      return getDefaultMessages();
+    }
+
+    const saved = window.localStorage.getItem(STORAGE_KEY);
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
@@ -24,14 +39,7 @@ const Chatbot = () => {
         console.error("Error loading messages:", e);
       }
     }
-    return [
-      {
-        id: 1,
-        text: "Hello! 👋 Welcome to Intellects. I&apos;m here to help you learn about our services. How can I assist you today?",
-        sender: "bot",
-        timestamp: new Date(),
-      },
-    ];
+    return getDefaultMessages();
   };
 
   const [messages, setMessages] = useState(loadMessages);
@@ -51,7 +59,9 @@ const Chatbot = () => {
 
   // Save messages to localStorage whenever they change
   useEffect(() => {
-    localStorage.setItem("chatbot_messages", JSON.stringify(messages));
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+    }
   }, [messages]);
 
   useEffect(() => {
@@ -346,16 +356,11 @@ const Chatbot = () => {
 
   // Clear chat history
   const clearHistory = () => {
-    const welcomeMessage = [
-      {
-        id: 1,
-        text: "Hello! 👋 Welcome to Intellects. I&apos;m here to help you learn about our services. How can I assist you today?",
-        sender: "bot",
-        timestamp: new Date(),
-      },
-    ];
+    const welcomeMessage = getDefaultMessages();
     setMessages(welcomeMessage);
-    localStorage.setItem("chatbot_messages", JSON.stringify(welcomeMessage));
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(welcomeMessage));
+    }
     messageIdRef.current = 2;
   };
 

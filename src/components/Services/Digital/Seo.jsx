@@ -581,17 +581,17 @@ export default function Seo() {
                   transition={{ duration: 0.8 }}
                   className={`relative ${i % 2 === 1 ? 'lg:col-start-1' : ''}`}
                 >
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl max-h-96">
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                     <Image 
                       src={section.image} 
                       alt={section.title} 
-                      fill
-                      className="object-cover"
+                      width={768}
+                      height={512}
+                      className="w-full h-80 object-cover"
                       sizes="(max-width: 1024px) 90vw, 420px"
                       style={{ 
                         borderRadius: '1rem',
-                        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-                        maxHeight: '384px'
+                        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
                       }}
                     />
                     <div 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import {
   Code,
   Server,
@@ -16,12 +16,12 @@ import {
   CheckCircle2,
   Sparkles,
 } from "lucide-react";
-import sky8Image from "../../../assets/gif5.gif";
-import customSoftwareImage from "../../../assets/custom2.png";
-import customSoftwareImage2 from "../../../assets/custom3.png";
-import customSoftwareImage3 from "../../../assets/custom4.png";
-import customSoftwareImage4 from "../../../assets/custom5.jpg";
-import customSoftwareImage5 from "../../../assets/custom6.jpg";
+const sky8Image = "/assets/gif5.gif";
+const customSoftwareImage = "/assets/custom2.png";
+const customSoftwareImage2 = "/assets/custom3.png";
+const customSoftwareImage3 = "/assets/custom4.png";
+const customSoftwareImage4 = "/assets/custom5.jpg";
+const customSoftwareImage5 = "/assets/custom6.jpg";
 
 
 // Typing Animation Component
@@ -1104,8 +1104,7 @@ const CustomSoftwareDevelopment = () => {
             
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
-                to="/contact"
-                onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
+                href="/contact"
                 className="px-10 py-4 bg-white font-bold rounded-xl shadow-2xl hover:shadow-white/20 hover:scale-105 transition-all duration-300 flex items-center gap-2 group"
                 style={{ color: '#4C1D95' }}
               >
