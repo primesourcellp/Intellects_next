@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Code,
   Server,
@@ -230,7 +231,7 @@ const CustomSoftwareDevelopment = () => {
               className="text-2xl md:text-3xl font-semibold mb-6"
               style={{ color: '#4C1D95' }}
             >
-              Building Tomorrow's Digital Solutions Today
+              Building Tomorrow&apos;s Digital Solutions Today
             </motion.h2>
         
             <motion.p
@@ -251,12 +252,16 @@ const CustomSoftwareDevelopment = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <img 
+            <Image 
               src={sky8Image} 
               alt="Software Development Animation" 
-              className="w-full h-auto rounded-2xl shadow-2xl"
+              width={800}
+              height={600}
+              className="w-full h-auto rounded-2xl shadow-2xl" 
+              priority
+              sizes="(min-width: 1024px) 45vw, 100vw"
             />
-          </motion.div>
+          </motion.div> 
 
         </div>
       </section>
@@ -338,16 +343,20 @@ const CustomSoftwareDevelopment = () => {
                   transition={{ duration: 0.8 }}
                   className={`relative ${i % 2 === 1 ? 'lg:col-start-1' : ''}`}
                 >
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl max-h-96">
-                    <img 
+                  <div
+                    className="relative rounded-2xl overflow-hidden shadow-2xl max-h-96"
+                    style={{ 
+                      boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+                      maxHeight: '384px'
+                    }}
+                  >
+                    <Image 
                       src={s.img} 
                       alt={s.title} 
-                      className="w-full h-full object-cover"
-                      style={{ 
-                        borderRadius: '1rem',
-                        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-                        maxHeight: '384px'
-                      }}
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                      priority={i === 0}
                     />
                     {/* Decorative overlay */}
                     <div 
@@ -692,10 +701,12 @@ const CustomSoftwareDevelopment = () => {
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 w-full max-w-full">
           <div className="grid md:grid-cols-2 gap-0 w-full">
             <div className="relative h-full min-h-[400px] overflow-hidden">
-              <img
+              <Image
                 src={customSoftwareImage5}
                 alt="Why Clients Choose Intellects"
-                className="absolute inset-0 w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(min-width: 768px) 50vw, 100vw"
               />
               <div className="absolute inset-0" ></div>
               <div className="absolute inset-0 flex items-center justify-center p-8">
@@ -1059,7 +1070,7 @@ const CustomSoftwareDevelopment = () => {
                   Seamless Journey, Exceptional Results
                 </p>
                 <p className="text-gray-600">
-                  From concept to deployment, we're with you every step of the way
+                  From concept to deployment, we&apos;re with you every step of the way
                 </p>
               </div>
               <motion.div
@@ -1095,7 +1106,7 @@ const CustomSoftwareDevelopment = () => {
               transition={{ duration: 0.7 }}
               viewport={{ once: false }}
             >
-              At Intellects, we don't offer templates — we engineer tailored software that grows with your business.
+              At Intellects, we don&apos;t offer templates — we engineer tailored software that grows with your business.
             </motion.h3>
             
             <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
