@@ -63,8 +63,8 @@ export default function Footer() {
                                 <Image
                                     src="/assets/logo.png"
                                     alt="Intellects Logo"
-                                    width={160}
-                                    height={64}
+                                    width={55}
+                                    height={48}
                                     priority
                                 />
                             </Link>
